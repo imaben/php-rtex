@@ -45,28 +45,6 @@ PHP_INI_END()
 */
 /* }}} */
 
-/* Remove the following function when you have successfully modified config.m4
-   so that your module can be compiled into PHP, it exists only for testing
-   purposes. */
-
-/* Every user-visible function in PHP should document itself in the source */
-/* {{{ proto string confirm_rtex_compiled(string arg)
-   Return a string to confirm that the module is compiled in */
-PHP_FUNCTION(confirm_rtex_compiled)
-{
-	char *arg = NULL;
-	size_t arg_len, len;
-	zend_string *strg;
-
-	if (zend_parse_parameters(ZEND_NUM_ARGS(), "s", &arg, &arg_len) == FAILURE) {
-		return;
-	}
-
-	strg = strpprintf(0, "Congratulations! You have successfully modified ext/%.78s/config.m4. Module %.78s is now compiled into PHP.", "rtex", arg);
-
-	RETURN_STR(strg);
-}
-/* }}} */
 /* The previous line is meant for vim and emacs, so it can correctly fold and
    unfold functions in source code. See the corresponding marks just before
    function definition, where the functions purpose is also documented. Please
